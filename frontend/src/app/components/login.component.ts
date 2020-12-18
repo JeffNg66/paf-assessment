@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { BackendService } from '../backend.service';
 
 @Component({
@@ -10,15 +11,15 @@ import { BackendService } from '../backend.service';
 })
 export class LoginComponent implements OnInit {
 
-	errorMessage = ''
+  errorMessage = ''
   loginform: FormGroup
-  
-  constructor(private fb: FormBuilder,
-              private backend: BackendService,
-              private router: Router,
-              ) { }
 
-	ngOnInit(): void { 
+  constructor(private fb: FormBuilder,
+    private backend: BackendService,
+    private router: Router,
+  ) { }
+
+  ngOnInit(): void {
     this.loginform = this.fb.group({
       username: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required])
@@ -26,22 +27,20 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('form processed: ', this.loginform.value)
+    // console.log('form processed: ', this.loginform.value)
     const user = this.loginform.value
 
     this.backend.userLogin(user)
       .subscribe(result => {
         // console.log('result ---> ', result)
         if (result) {
-          this.router.navigate([ '/main'])
+          this.router.navigate(['/main'])
         } else {
           this.errorMessage = "Login failed"
         }
       }
 
-    )
-  //   this.loginService.postPartyForm(this.loginform.value).subscribe()
-  //   // this.router.navigate(['/main'])
+      )
   }
 
 }

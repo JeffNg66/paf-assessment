@@ -45,7 +45,7 @@ app.post("/login", express.json() , async (req, resp) => {
 		const db_record = await findUser([user, password])
 	
 		console.log('dbrecord, user, password ->', db_record, user, password)
-		console.log('db_recode length', db_record.length)
+		console.log('db_recode password', db_record[0].password)
 
 		if (db_record.length <= 0) {
 			resp.status(401)
@@ -58,7 +58,7 @@ app.post("/login", express.json() , async (req, resp) => {
 			
 	} catch (e) {
 		console.error('ERROR: ', e)
-        resp.status(500)
+        resp.status(401)
         resp.json({ error: e, errorMessage: 'User not found' })
 	}
 
