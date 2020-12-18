@@ -15,9 +15,9 @@ export class BackendService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  httpOptions2 = {
-    headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
-  };
+  // httpOptions2 = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
+  // };
 
   constructor(private http: HttpClient) { }
 

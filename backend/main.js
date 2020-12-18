@@ -94,6 +94,8 @@ const app = express()
 app.use(cors())
 app.use(morgan('combined'))
 
+app.use(express.static(__dirname + '/frontend'))
+
 app.post("/login", express.json() , async (req, resp) => {
 	// console.info('req.body --> ', req.body)
 	const user = req.body['username']
