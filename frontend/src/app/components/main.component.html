@@ -1,4 +1,3 @@
-
 <div class="row mt-2">
 	<div class="col">
 		<h2>Share Something Today</h2>
@@ -14,16 +13,15 @@
 <form [formGroup]="form">
 	<div class="form-group">
 		<label for="title">Title</label>
-		<input id="title" class="form-control" type="text" 
-			placeholder="Title" formControlName="title">
+		<input id="title" class="form-control" type="text" placeholder="Title" formControlName="title">
 	</div>
 	<div class="form-group">
 		<label for="comments">Comments</label>
-		<textarea id="comments"rows="5" class="form-control" 
-			placeholder="Your thoughts" formControlName="comments"></textarea>
+		<textarea id="comments" rows="5" class="form-control" placeholder="Your thoughts"
+			formControlName="comments"></textarea>
 	</div>
 	<div class="d-flex justify-content-between mt-4">
-		<button class="btn btn-lg btn-primary" [disabled]="form.invalid || !hasImage">
+		<button class="btn btn-lg btn-primary" [disabled]="form.invalid || !hasImage" (click)="sendData()">
 			<span style="margin-right: 5px !important;">Share</span>
 			<i class="fas fa-share-alt"></i>
 		</button>

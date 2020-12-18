@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { BackendService } from '../backend.service';
+import { SharingService } from '../sharing.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,9 @@ export class LoginComponent implements OnInit {
   loginform: FormGroup
 
   constructor(private fb: FormBuilder,
-    private backend: BackendService,
     private router: Router,
+    private backend: BackendService,
+    private shareData: SharingService,
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
       .subscribe(result => {
         // console.log('result ---> ', result)
         if (result) {
+          this.shareData.setData(user)
           this.router.navigate(['/main'])
         } else {
           this.errorMessage = "Login failed"
