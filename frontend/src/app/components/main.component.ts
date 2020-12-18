@@ -64,6 +64,7 @@ export class MainComponent implements OnInit {
 					this.backend.upload(data)
 						.then(res => {
 							console.log('>>>Upload result: ', res)
+							this.clear()
 						})
 						.catch(e => {
 							console.error('>>Upload error',e)
