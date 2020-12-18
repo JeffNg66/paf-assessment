@@ -1,5 +1,6 @@
 const morgan = require('morgan')
 const express = require('express')
+const sha1 = require('sha1')
 
 const PORT = parseInt(process.argv[2]) || parseInt(process.env.PORT) || 3000
 
