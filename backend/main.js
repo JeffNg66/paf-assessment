@@ -30,8 +30,8 @@ const client = new MongoClient(MONGO_URL, {
     useNewUrlParser: true, useUnifiedTopology: true
 })
 
-const ACCESS_KEY = process.env.ACCESS_KEY || 'W4LVT2ZD57FP6IICPUNX'
-const SECRET_KEY = process.env.SECRET_ACCESS_KEY || 'b22tsQsCUhQ9JzRyphnHBVr1fl6AqZQGvBiY9bnJA5g'
+const ACCESS_KEY = process.env.ACCESS_KEY || ''
+const SECRET_KEY = process.env.SECRET_ACCESS_KEY || ''
 
 const s3 = new AWS.S3({
 	endpoint: new AWS.Endpoint('sfo2.digitaloceanspaces.com'),
